@@ -1,5 +1,5 @@
-var auth = WeDeploy.auth('auth.imageregister.wedeploy.io');
-var data = WeDeploy.data('data.imageregister.wedeploy.io');
+var auth = WeDeploy.auth('auth-imageregister.wedeploy.sh');
+var data = WeDeploy.data('data-imageregister.wedeploy.sh');
 
 //auth
 function signUp() {
