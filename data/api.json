@@ -1,0 +1,6 @@
+[
+    {
+        "path": "/images/*",
+        "data": true
+    }
+]
