@@ -22,7 +22,7 @@ function signUp() {
 function signIn() {
     auth.signInWithEmailAndPassword(user.email.value, user.password.value)
     .then(function() {
-        document.location.href = '/welcome.html';
+        document.location.href = '/images.html';
     })
     .catch(function() {
         alert('Sign-in failed. Try another email/password.');
@@ -84,12 +84,30 @@ function appendImages(images) {
     var imagesList = '';
 
     images.forEach(function(image) {
-        imagesList += `<div class="image-item">`;
-        imagesList += `<span class="thumb-content" style="border:1px solid ${image.color}" />`;
-        imagesList += `<img src="${image.image}" />`;
+        imagesList += `<div class="list-item">`;
+        imagesList += `<div class="row">`;
+
+        imagesList += `<div class="col-xs-3">`;
+        imagesList += `<span class="avatar avatar-round avatar-medium" style="border:1px solid ${image.color}" />`;
+        imagesList += `<img class="avatar-img" src="${image.image}" />`;
         imagesList += `</span>`;
-        imagesList += `<span class="image-name">${image.name}</span>`;
-        imagesList += `<button class="btn-delete" onclick="deleteImages('${image.id}')">x</button>`;
+        imagesList += `</div>`;
+        
+        imagesList += `<div class="col-xs-7">`;
+        imagesList += `<span class="item-title">${image.name}</span>`;
+        imagesList += `</div>`;
+
+        imagesList += `<div class="col-xs-4">`;
+        imagesList += `<span class="item-title">${image.color}</span>`;
+        imagesList += `</div>`;
+
+        imagesList += `<div class="col-xs-2 right">`;
+        imagesList += `<button class="btn btn-squared" onclick="deleteImages('${image.id}')">`;
+        imagesList += `<span class="icon-12-close-short"></span>`;
+        imagesList += `</button>`;
+        imagesList += `</div>`;
+
+        imagesList += `</div>`;
         imagesList += `</div>`;
     });
 

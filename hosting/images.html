@@ -4,38 +4,93 @@
 	<meta charset="UTF-8">
 	<title>Images Register</title>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,700">
+	<link rel="stylesheet" href="marble/fonts/galano/galano.css">
+	<link rel="stylesheet" href="marble/fonts/icon-12/icon-12.css">
+	<link rel="stylesheet" href="marble/fonts/icon-16/icon-16.css">
+	<link rel="stylesheet" href="console.css">
 	<link rel="stylesheet" href="main.css">
 </head>
 <body>
 	<div class="main">
-		<div>
-			<h1>Docker Images Registration</h1>
-			<h3 class="username"></h3>
-			<a onclick="out(); return false;" style="cursor: pointer;">Logout</a>
-		</div>
-		<div class="register-container">
-			<div class="content">
-				<form action="" id="register-form" class="container">
-					<label for="name">Docker image name</label>
-					<input name="name" type="text" placeholder="name" autofocus autocomplete="off" required />
-
-					<label for="color">Docker image color</label>
-					<input name="color" type="text" placeholder="color" autocomplete="off" required />
-
-					<label for="img">Docker image icon</label>
-					<input name="img" type="file" onchange="encodeImageFileAsURL(this)" required />
-					<input name="base64" type="hidden" />
-					
-					<button type="submit">Register</button>
-				</form>
+		<!-- init topbar -->		
+		<div class="topbar">
+			<div class="topbar-logo">
+				<a class="topbar-logo-link" href="/images.html">
+					<span class="topbar-logo-text">Docker Images Registration</span>
+				</a>
 			</div>
-			<div class="content">
-				<div class="images-list"></div>
-			</div>
-		</div>
-	</div>
+			<ul class="topbar-list">
+				<li class="topbar-item active">
+					<a class="topbar-link" onclick="out(); return false;">
+						<span>Logout</span>
+					</a>
+				</li>
+			</ul>
+		</div><!-- close topbar -->
 
-	<script src="http://cdn.wedeploy.com/api/latest/wedeploy.js"></script>
+		<!-- init container -->
+		<div class="topbar-offset">
+			<div class="container-hybrid">
+				<div class="row">
+					<div class="col-xs-16 col-md-6">
+						<div class="content-body">
+							<h3 class="body-title">Add a new docker image</h3>
+							<form action="" id="register-form">
+								<div class="body-section">
+									<div class="form-group">
+										<label for="name">Docker image name</label>
+										<input name="name" class="form-control" type="text" placeholder="name" autofocus autocomplete="off" required />
+									</div>
+									
+									<div class="form-group">
+										<label for="color">Docker image color</label>
+										<input name="color" class="form-control" type="text" placeholder="color" autocomplete="off" required />
+									</div>
+
+									<div class="form-group">
+										<label for="img">Docker image icon</label>
+										<input name="img" class="form-control" type="file" onchange="encodeImageFileAsURL(this)" required />
+										<input name="base64" type="hidden" />
+									</div>
+								</div>
+
+								<div class="body-section text-center">
+									<button class="btn btn-success btn-block" type="submit">Add</button>
+								</div>
+							</form>
+						</div>
+					</div>
+					<div class="col-xs-16 col-md-10">
+						<div class="content-body">
+							<h3 class="body-title">Docker images</h3>
+							<div class="content-list">
+								<div class="list-header">
+									<div class="row">
+										<div class="col-xs-3">
+											<span>Image</span>
+										</div>
+										<div class="col-xs-7">
+											<span>Name</span>
+										</div>
+										<div class="col-xs-4">
+											<span>Color</span>
+										</div>
+										<div class="col-md-2">
+											<span></span>
+										</div>
+									</div>
+								</div>
+								<div class="images-list"></div>
+							</div>
+						</div>
+					</div>
+				</div><!-- close row -->
+			</div><!-- close container-hybrid -->
+		</div>
+
+	</div><!-- close main -->
+
+	<script src="https://cdn.wedeploy.com/api/beta/wedeploy.js"></script>
 	
 	<script src="main.js"></script>
 	<script>//if (auth.currentUser == null) {location.href = '/';}</script>
