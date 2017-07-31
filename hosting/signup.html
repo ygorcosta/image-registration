@@ -4,21 +4,52 @@
 	<meta charset="UTF-8">
 	<title>Sign Up</title>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,700">
+	<link rel="stylesheet" href="marble/fonts/galano/galano.css">
+	<link rel="stylesheet" href="marble/fonts/icon-12/icon-12.css">
+	<link rel="stylesheet" href="marble/fonts/icon-16/icon-16.css">
+	<link rel="stylesheet" href="console.css">
 	<link rel="stylesheet" href="main.css">
 </head>
 <body>
-	<form name="user" class="container" onsubmit="submitForm(); return false;">
-		<h1>Sign Up</h1>
-		<input name="name" type="text" placeholder="Name" required>
-		<input name="email" type="email" placeholder="Email" required>
-		<input name="password" type="password" placeholder="Password" required>
-		<button type="submit">Submit</button>
-		<a href="/">Back to login</a>
-	</form>
-	<img class="logo" src="logo.png" width="150" alt="WeDeploy">
+	<main class="auth">
+		<div class="container-hybrid-account">
+			<div class="row">
+				<div class="col-xs-16">
+					<h1 class="login-text-primary">Create your account</h1>
+					<div class="content-body">
+						<div class="logo">
+							<span>We</span>
+						</div>
+						<form name="user" onsubmit="signUp(); return false;" novalidate="">
+							<input type="hidden" name="cmd" value="signup">
+							<div class="form-group ">
+								<label>Name</label>
+								<input id="name" autocomplete="off" type="text" placeholder="Your full name" class="form-control" name="name" value="" maxlength="100" autofocus="" required="">
+								<p id="nameHelp" class="help-block"></p>
+							</div>
+							<div class="form-group ">
+								<label>Email</label>
+								<input id="email" autocomplete="off" type="email" placeholder="youremail@company.com" class="form-control" name="email" value="" maxlength="100" autofocus="">
+								<p id="emailHelp" class="help-block"></p>
+							</div>
+							<div class="form-group ">
+								<label>Password</label>
+								<input id="password" type="password" placeholder="Password" class="form-control" name="password" value="" maxlength="100" autofocus="">
+								<p id="passwordHelp" class="help-block"></p>
+							</div>
+							<div class="text-center">
+								<button type="submit" class="btn btn-lg btn-success" name="submit">Create an account</button>
+							</div>
+						</form>
+						<p class="login-text-secondary">Already have an account? <a href="index.html">Log in</a></p>
+    			</div>
+  			</div>
+			</div>
+		</div>
+	</main>
 
 	<script src="http://cdn.wedeploy.com/api/latest/wedeploy.js"></script>
-	
-	<script src="main.js"></script>
+	<script src="auth.js"></script>
+	<script>if (auth.currentUser) {document.location.href = '/images.html';}</script>
 </body>
 </html>
