@@ -5,7 +5,7 @@ var data = WeDeploy.data('data-imageregister.wedeploy.sh');
 function signOut() {
 	auth.signOut()
 	.then(() => {
-		location.href = '/';
+		location.href = 'index.html';
 	});
 }
 
